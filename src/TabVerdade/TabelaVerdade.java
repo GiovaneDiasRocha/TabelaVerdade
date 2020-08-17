@@ -30,7 +30,7 @@ public static void main(String[] args) {
 					System.out.println("4 -  Conjunção PQ");
 		            System.out.println("5 -  Disjunção PQ");
 		            System.out.println("6 -  Condicional PQ");
-		            System.out.println("Sair");
+		            System.out.println("7 -  Sair");
 		            
 		            opcao = leia.nextInt(); leia.nextLine();
 		            
@@ -77,7 +77,7 @@ public static void main(String[] args) {
 		            System.out.println("11 - Condicional P e Q na tapela PQR");
 		            System.out.println("12 - Condicional P e R na tapela PQR");
 		            System.out.println("13 - Condicional Q e R na tapela PQR");
-		            System.out.println("Sair");
+		            System.out.println("14 - Sair");
 		            
 		            pref = leia.nextInt(); leia.nextLine();
 		            

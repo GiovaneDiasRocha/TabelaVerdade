@@ -23,14 +23,15 @@ public static void main(String[] args) {
 			escolha = leia.nextInt(); leia.nextLine();
 			
 			if (escolha == 1) {
-				while(opcao != 7) {
+				while(opcao != 8) {
 					System.out.println("1 -  Exibir tabela PQ");
 					System.out.println("2 -  Negação de P na tapela PQ");
 					System.out.println("3 -  Negação de Q na tapela PQ");
 					System.out.println("4 -  Conjunção PQ");
 		            System.out.println("5 -  Disjunção PQ");
 		            System.out.println("6 -  Condicional PQ");
-		            System.out.println("7 -  Sair");
+		            System.out.println("7 -  Bi-Condicional PQ");
+		            System.out.println("8 -  Sair");
 		            
 		            opcao = leia.nextInt(); leia.nextLine();
 		            
@@ -59,11 +60,14 @@ public static void main(String[] args) {
 					case 6:
 						obj.condicionalPQ();
 						break;
+					case 7:
+						obj.biCondicionalPQ();
+						break;
 					}
 				}
 					
 			} else if(escolha == 2) {
-				while(pref != 14) {
+				while(pref != 17) {
 					System.out.println("1  - Exibir tabela PQR");
 					System.out.println("2  - Negação de P na tapela PQR");
 		            System.out.println("3  - Negação de Q na tapela PQR");
@@ -77,7 +81,10 @@ public static void main(String[] args) {
 		            System.out.println("11 - Condicional P e Q na tapela PQR");
 		            System.out.println("12 - Condicional P e R na tapela PQR");
 		            System.out.println("13 - Condicional Q e R na tapela PQR");
-		            System.out.println("14 - Sair");
+		            System.out.println("14 - Bi-Condicional P e Q na tapela PQR");
+		            System.out.println("15 - Bi-Condicional P e R na tapela PQR");
+		            System.out.println("16 - Bi-Condicional Q e R na tapela PQR");
+		            System.out.println("17 - Sair");
 		            
 		            pref = leia.nextInt(); leia.nextLine();
 		            
@@ -132,6 +139,17 @@ public static void main(String[] args) {
 	
 					case 13:
 						obj.condicionalQeRemPQR();
+						break;
+					case 14:
+						obj.biCondicionalPeQemPQR();
+						break;
+	
+					case 15:
+						obj.biCondicionalPeRemPQR();
+						break;
+	
+					case 16:
+						obj.biCondicionalQeRemPQR();
 						break;
 	
 					}

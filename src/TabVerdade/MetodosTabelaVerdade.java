@@ -9,6 +9,7 @@ public class MetodosTabelaVerdade {
     String conjPeQ[] = new String [4];
     String disjuPeQ[] = new String [4];
     String condPeQ[] = new String [4];
+    String biCondPeQ[] = new String [4];
     String negPemPQR[] = new String [8];
     String negQemPQR[] = new String [8];
     String negRemPQR[] = new String [8];
@@ -21,6 +22,9 @@ public class MetodosTabelaVerdade {
     String condPeQemPQR[] = new String [8];
     String condPeRemPQR[] = new String [8];
     String condQeRemPQR[] = new String [8];
+    String biCondPeQemPQR[] = new String [8];
+    String biCondPeRemPQR[] = new String [8];
+    String biCondQeRemPQR[] = new String [8];
 	
 	public void lerMatrizPQ() {  
         for(int i=0; i<4; i++) {
@@ -179,6 +183,22 @@ public class MetodosTabelaVerdade {
             System.out.println();
         }  
     }
+    
+    public void biCondicionalPQ() {
+        int j =0;
+        for(int i=0; i<4; i++) {      
+            if(matrizPQ[i][0] == matrizPQ[i][1]) {
+                biCondPeQ[j++] = "V"; 
+            } else {
+                biCondPeQ[j++] = "F";
+            }
+        }
+        System.out.println();
+        for(int i=0; i<4; i++) {           
+                System.out.print(biCondPeQ[i]);
+            System.out.println();
+        }  
+    }
 
     public void conjuncaoPQemPQR() {
         int j =0;
@@ -320,6 +340,54 @@ public class MetodosTabelaVerdade {
         System.out.println();
         for(int i=0; i<8; i++) {           
                 System.out.print(condQeRemPQR[i]);
+            System.out.println();
+        }  
+    }
+    
+    public void biCondicionalPeQemPQR() {
+        int j =0;
+        for(int i=0; i<8; i++) {      
+            if(matrizPQR[i][0] == matrizPQR[i][1]) {
+            	biCondPeQemPQR[j++] = "V"; 
+            } else {
+                biCondPeQemPQR[j++] = "F";
+            }
+        }
+        System.out.println();
+        for(int i=0; i<8; i++) {           
+                System.out.print(biCondPeQemPQR[i]);
+            System.out.println();
+        }  
+    }
+    
+    public void biCondicionalPeRemPQR() {
+        int j =0;
+        for(int i=0; i<8; i++) {      
+            if(matrizPQR[i][0] == matrizPQR[i][2]) {
+            	biCondPeRemPQR[j++] = "V"; 
+            } else {
+                biCondPeRemPQR[j++] = "F";
+            }
+        }
+        System.out.println();
+        for(int i=0; i<8; i++) {           
+                System.out.print(biCondPeRemPQR[i]);
+            System.out.println();
+        }  
+    }
+    
+    public void biCondicionalQeRemPQR() {
+        int j =0;
+        for(int i=0; i<8; i++) {      
+            if(matrizPQR[i][1] == matrizPQR[i][2]) {
+            	biCondQeRemPQR[j++] = "V"; 
+            } else {
+                biCondQeRemPQR[j++] = "F";
+            }
+        }
+        System.out.println();
+        for(int i=0; i<8; i++) {           
+                System.out.print(biCondQeRemPQR[i]);
             System.out.println();
         }  
     }

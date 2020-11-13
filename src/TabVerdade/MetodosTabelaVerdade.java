@@ -2,29 +2,11 @@ package TabVerdade;
 
 public class MetodosTabelaVerdade {
 	
-	String matrizPQ[][] = {{"V","V"},{"V","F"},{"F","V"},{"F","F"}};
-    String matrizPQR[][] = {{"V","V","V"},{"V","V","F"},{"V","F","V"},{"V","F","F"},{"F","V","V"},{"F","V","F"},{"F","F","V"},{"F","F","F"}};
-    String negPemPQ[] = new String [4];
-    String negQemPQ[] = new String [4];
-    String conjPeQ[] = new String [4];
-    String disjuPeQ[] = new String [4];
-    String condPeQ[] = new String [4];
-    String biCondPeQ[] = new String [4];
-    String negPemPQR[] = new String [8];
-    String negQemPQR[] = new String [8];
-    String negRemPQR[] = new String [8];
-    String conjPeQemPQR[] = new String [8];
-    String conjPeRemPQR[] = new String [8];
-    String conjQeRemPQR[] = new String [8];
-    String disjuPeQemPQR[] = new String [8];
-    String disjuPeRemPQR[] = new String [8];
-    String disjuQeRemPQR[] = new String [8];
-    String condPeQemPQR[] = new String [8];
-    String condPeRemPQR[] = new String [8];
-    String condQeRemPQR[] = new String [8];
-    String biCondPeQemPQR[] = new String [8];
-    String biCondPeRemPQR[] = new String [8];
-    String biCondQeRemPQR[] = new String [8];
+    String[][] matrizPQ = {{"V","V"},{"V","F"},{"F","V"},{"F","F"}};
+    String[][] matrizPQR = {{"V","V","V"},{"V","V","F"},{"V","F","V"},{"V","F","F"},{"F","V","V"},{"F","V","F"},{"F","F","V"},{"F","F","F"}};
+    String[][] memoria4 = matrizPQ;
+    String[][] memoria8 = matrizPQR;
+    public String[] memoriaAux = new String[8];
 	
 	public void lerMatrizPQ() {  
         for(int i=0; i<4; i++) {
@@ -48,18 +30,13 @@ public class MetodosTabelaVerdade {
     	int j=0;
         for(int i=0; i<4; i++) {
              
-                if(matrizPQ[i][0]=="V") {
-                    negPemPQ[j++]= "F";
+                if(matrizPQ[i][0].equals("V")) {
+                	memoria4[j++][0]= "F";
                 } else {
-                	negPemPQ[j++]= "V";
+                	memoria4[j++][0]= "V";
                 }
             
         }
-        System.out.println();
-        for(int i=0; i<4; i++) {
-        	System.out.print(negPemPQ[i]);
-        	System.out.println();
-        }   
 
     }
 
@@ -68,34 +45,29 @@ public class MetodosTabelaVerdade {
     	int j=0;
         for(int i=0; i<4; i++) {
              
-                if(matrizPQ[i][1]=="V") {
-                    negQemPQ[j++]= "F";
+                if(matrizPQ[i][1].equals("V")) {
+                	memoria4[j++][1]= "F";
                 } else {
-                	negQemPQ[j++]= "V";
+                	memoria4[j++][1]= "V";
                 }
             
         }
-        System.out.println();
-        for(int i=0; i<4; i++) {
-        	System.out.print(negQemPQ[i]);
-        	System.out.println();
-        }      
-
+        
     }
 
     public void negacaoPemPQR() {
     	int j=0;
         for(int i=0; i<8; i++) {       
             
-                if(matrizPQR[i][0]=="V") {
-                    negPemPQR[j++]= "F";
+                if(matrizPQR[i][0].equals("V")) {
+                	memoria8[j++][0]= "F";
                 } else {
-                	negPemPQR[j++]= "V";
+                	memoria8[j++][0]= "V";
                 } 
         }
         System.out.println();
         for(int i=0; i<8; i++) {          
-                System.out.print(negPemPQR[i]);
+                System.out.print(memoria8[i][0]);
                 System.out.println();          
         }
     }
@@ -105,15 +77,15 @@ public class MetodosTabelaVerdade {
     	int j=0;
         for(int i=0; i<8; i++) {       
             
-                if(matrizPQR[i][1]=="V") {
-                    negQemPQR[j++]= "F";
+                if(matrizPQR[i][1].equals("V")) {
+                	memoria8[j++][1]= "F";
                 } else {
-                	negQemPQR[j++]= "V";
+                	memoria8[j++][1]= "V";
                 } 
         }
         System.out.println();
         for(int i=0; i<8; i++) {          
-                System.out.print(negQemPQR[i]);
+                System.out.print(memoria8[i][1]);
                 System.out.println();          
         }
     }
@@ -123,15 +95,15 @@ public class MetodosTabelaVerdade {
     	int j=0;
         for(int i=0; i<8; i++) {       
             
-                if(matrizPQR[i][2]=="V") {
-                    negRemPQR[j++]= "F";
+                if(matrizPQR[i][2].equals("V")) {
+                	memoria8[j++][2]= "F";
                 } else {
-                	negRemPQR[j++]= "V";
+                	memoria8[j++][2]= "V";
                 } 
         }
         System.out.println();
         for(int i=0; i<8; i++) {          
-                System.out.print(negRemPQR[i]);
+                System.out.print(memoria8[i][2]);
                 System.out.println();          
         }
     }
@@ -139,15 +111,15 @@ public class MetodosTabelaVerdade {
     public void conjuncaoPQ() {
         int j =0;
         for(int i=0; i<4; i++) {      
-            if(matrizPQ[i][0] == "V" && matrizPQ[i][1] == "V") {
-                conjPeQ[j++] = "V"; 
+            if(memoria4[i][0].equals("V") && memoria4[i][1].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                conjPeQ[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<4; i++) {           
-                System.out.print(conjPeQ[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -155,15 +127,15 @@ public class MetodosTabelaVerdade {
     public void disjuncaoPQ() {
         int j =0;
         for(int i=0; i<4; i++) {      
-            if(matrizPQ[i][0] == "V" || matrizPQ[i][1] == "V") {
-                conjPeQ[j++] = "V"; 
+            if(memoria4[i][0].equals("V") || memoria4[i][1].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                conjPeQ[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<4; i++) {           
-                System.out.print(conjPeQ[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -171,15 +143,31 @@ public class MetodosTabelaVerdade {
     public void condicionalPQ() {
         int j =0;
         for(int i=0; i<4; i++) {      
-            if(matrizPQ[i][0] == "V" && matrizPQ[i][1] != "V") {
-                condPeQ[j++] = "F"; 
+            if(memoria4[i][0].equals("V") && memoria4[i][1].equals("F")) {
+            	memoriaAux[j++] = "F"; 
             } else {
-                condPeQ[j++] = "V";
+            	memoriaAux[j++] = "V";
             }
         }
         System.out.println();
         for(int i=0; i<4; i++) {           
-                System.out.print(condPeQ[i]);
+                System.out.print(memoriaAux[i]);
+            System.out.println();
+        }  
+    }
+    
+    public void condicionalQP() {
+        int j =0;
+        for(int i=0; i<4; i++) {      
+            if(memoria4[i][1].equals("V") && memoria4[i][0].equals("F")) {
+            	memoriaAux[j++] = "F"; 
+            } else {
+            	memoriaAux[j++] = "V";
+            }
+        }
+        System.out.println();
+        for(int i=0; i<4; i++) {           
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -187,15 +175,15 @@ public class MetodosTabelaVerdade {
     public void biCondicionalPQ() {
         int j =0;
         for(int i=0; i<4; i++) {      
-            if(matrizPQ[i][0] == matrizPQ[i][1]) {
-                biCondPeQ[j++] = "V"; 
+            if(memoria4[i][0].equals(memoria4[i][1])) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                biCondPeQ[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<4; i++) {           
-                System.out.print(biCondPeQ[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -203,15 +191,15 @@ public class MetodosTabelaVerdade {
     public void conjuncaoPQemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == "V" && matrizPQR[i][1] == "V") {
-                conjPeQemPQR[j++] = "V"; 
+            if(memoria8[i][0].equals("V") && memoria8[i][1].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                conjPeQemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(conjPeQemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -219,15 +207,15 @@ public class MetodosTabelaVerdade {
     public void conjuncaoPRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == "V" && matrizPQR[i][2] == "V") {
-                conjPeQemPQR[j++] = "V"; 
+            if(memoria8[i][0].equals("V") && memoria8[i][2].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                conjPeQemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(conjPeQemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -235,15 +223,15 @@ public class MetodosTabelaVerdade {
     public void conjuncaoQRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][1] == "V" && matrizPQR[i][2] == "V") {
-                conjPeQemPQR[j++] = "V"; 
+            if(memoria8[i][1].equals("V") && memoria8[i][2].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                conjPeQemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(conjPeQemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -251,15 +239,15 @@ public class MetodosTabelaVerdade {
     public void disjuncaoPQemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == "V" || matrizPQR[i][1] == "V") {
-                disjuPeQemPQR[j++] = "V"; 
+            if(memoria8[i][0].equals("V") || memoria8[i][1].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                disjuPeQemPQR[j++] = "F";
+                memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(disjuPeQemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -267,15 +255,15 @@ public class MetodosTabelaVerdade {
     public void disjuncaoPRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == "V" || matrizPQR[i][2] == "V") {
-                disjuPeRemPQR[j++] = "V"; 
+            if(memoria8[i][0].equals("V") || memoria8[i][2].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                disjuPeRemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(disjuPeRemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -283,15 +271,15 @@ public class MetodosTabelaVerdade {
     public void disjuncaoQRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][1] == "V" || matrizPQR[i][2] == "V") {
-                disjuQeRemPQR[j++] = "V"; 
+            if(memoria8[i][1].equals("V") || memoria8[i][2].equals("V")) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                disjuQeRemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(disjuQeRemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -299,15 +287,15 @@ public class MetodosTabelaVerdade {
     public void condicionalPeQemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == "V" && matrizPQR[i][1] == "F") {
-                condPeQemPQR[j++] = "F"; 
+            if(memoria8[i][0].equals("V") && memoria8[i][1].equals("F")) {
+            	memoriaAux[j++] = "F"; 
             } else {
-                condPeQemPQR[j++] = "V";
+            	memoriaAux[j++] = "V";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(condPeQemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -315,15 +303,15 @@ public class MetodosTabelaVerdade {
     public void condicionalPeRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == "V" && matrizPQR[i][2] == "F") {
-                condPeRemPQR[j++] = "F"; 
+            if(memoria8[i][0].equals("V") && memoria8[i][2].equals("F")) {
+            	memoriaAux[j++] = "F"; 
             } else {
-                condPeRemPQR[j++] = "V";
+            	memoriaAux[j++] = "V";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(condPeRemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -331,15 +319,15 @@ public class MetodosTabelaVerdade {
     public void condicionalQeRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][1] == "V" && matrizPQR[i][2] == "F") {
-                condPeRemPQR[j++] = "F"; 
+            if(memoria8[i][1].equals("V") && memoria8[i][2].equals("F")) {
+                memoriaAux[j++] = "F"; 
             } else {
-                condPeRemPQR[j++] = "V";
+            	memoriaAux[j++] = "V";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(condQeRemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -347,15 +335,15 @@ public class MetodosTabelaVerdade {
     public void biCondicionalPeQemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == matrizPQR[i][1]) {
-            	biCondPeQemPQR[j++] = "V"; 
+            if(memoria8[i][0].equals(memoria8[i][1])) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                biCondPeQemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(biCondPeQemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -363,15 +351,15 @@ public class MetodosTabelaVerdade {
     public void biCondicionalPeRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][0] == matrizPQR[i][2]) {
-            	biCondPeRemPQR[j++] = "V"; 
+            if(memoria8[i][0].equals(memoria8[i][2])) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                biCondPeRemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(biCondPeRemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
@@ -379,16 +367,33 @@ public class MetodosTabelaVerdade {
     public void biCondicionalQeRemPQR() {
         int j =0;
         for(int i=0; i<8; i++) {      
-            if(matrizPQR[i][1] == matrizPQR[i][2]) {
-            	biCondQeRemPQR[j++] = "V"; 
+            if(memoria8[i][1].equals(memoria8[i][2])) {
+            	memoriaAux[j++] = "V"; 
             } else {
-                biCondQeRemPQR[j++] = "F";
+            	memoriaAux[j++] = "F";
             }
         }
         System.out.println();
         for(int i=0; i<8; i++) {           
-                System.out.print(biCondQeRemPQR[i]);
+                System.out.print(memoriaAux[i]);
             System.out.println();
         }  
     }
+    
+    public void testaNegativo(String teste) {
+    	String[] calc;
+    	calc = teste.split(" ");
+
+        for (String s : calc) {
+            if (s.equals("~p")) {
+                negacaoPemPQ();
+            }
+            if (s.equals("~q")) {
+                negacaoQemPQ();
+            }
+        }
+    }
+
+
+
 }
